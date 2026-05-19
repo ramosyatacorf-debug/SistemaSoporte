@@ -1,50 +1,42 @@
-# SistemaSoporte
+# SistemaSoporte Pro (React + Express + SQL Server)
 
-Sistema base de soporte técnico con **inicio de sesión** y **módulo inicial de tickets** conectado a **SQL Server**.
+Plataforma profesional de soporte técnico con frontend en **React** y backend API en **Express**, autenticación por sesión y módulo de tickets.
 
-## Funcionalidades actuales
+## Arquitectura
 
-- Login seguro por correo y contraseña.
-- Control de sesión con rutas protegidas.
-- Gestión de tickets:
-  - Crear ticket.
-  - Listar tickets.
-  - Cambiar estado (abierto, en proceso, resuelto, cerrado).
+- `frontend/`: SPA React (Vite).
+- `src/`: API Express + sesiones + SQL Server.
+- `sql/init.sql`: esquema y datos iniciales.
 
-## Requisitos
+## Funcionalidades
 
-- Node.js 20+
-- SQL Server (local o remoto)
+- Login seguro contra SQL Server (`usuarios`).
+- Persistencia de sesión con cookies HTTP-only.
+- CRUD operativo base de tickets:
+  - crear ticket
+  - listar tickets
+  - cambiar estado
+- UI moderna en React para mesa de soporte.
 
-## Configuración
+## Ejecutar proyecto
 
-1. Instala dependencias:
+### 1) Base de datos
+Ejecuta `sql/init.sql` en SQL Server.
 
-   ```bash
-   npm install
-   ```
+### 2) Backend
+```bash
+cp .env.example .env
+npm install
+npm start
+```
 
-2. Crea tu archivo de entorno:
+### 3) Frontend React
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Ajusta credenciales de SQL Server en `.env`.
-
-4. Ejecuta el script SQL en SQL Server:
-
-   - Archivo: `sql/init.sql`
-
-5. Inicia en modo desarrollo:
-
-   ```bash
-   npm run dev
-   ```
-
-6. Abre `http://localhost:3000/login`
-
-## Acceso inicial
-
-- Usuario: `admin@soporte.local`
-- Contraseña: `Admin123*`
+## Usuario inicial
+- Email: `admin@soporte.local`
+- Password: `Admin123*`

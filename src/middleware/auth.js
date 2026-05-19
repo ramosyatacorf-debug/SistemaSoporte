@@ -1,8 +1,8 @@
-function ensureAuth(req, res, next) {
+function ensureAuthApi(req, res, next) {
   if (!req.session.user) {
-    return res.redirect('/login');
+    return res.status(401).json({ message: 'No autenticado' });
   }
   return next();
 }
 
-module.exports = { ensureAuth };
+module.exports = { ensureAuthApi };
