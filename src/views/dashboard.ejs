@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel | Sistema de Soporte</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h1>Bienvenido, <%= user.nombre %></h1>
+        <p>Sesión iniciada como <strong><%= user.email %></strong> (<%= user.rol %>).</p>
+        <p>Centro de control del sistema de soporte técnico.</p>
+
+        <div class="actions">
+          <a href="/tickets" class="link-btn">Ir a tickets</a>
+          <form method="post" action="/logout">
+            <button type="submit" class="secondary">Cerrar sesión</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
